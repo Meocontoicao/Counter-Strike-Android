@@ -60,12 +60,10 @@ public class UnitMove : GetFullComponent
             Vector3 rootMotionDeltaPosition = enemyAnimator.deltaPosition;
             rootMotionDeltaPosition.y = currentTransform.position.y;
             Quaternion rootMotionDeltaRotation = enemyAnimator.deltaRotation;
-
             // Áp dụng di chuyển từ Root Motion vào NavMeshAgent
             navMeshAgent.Move(rootMotionDeltaPosition);
-
             // Cập nhật hướng của nhân vật
-            transform.rotation *= rootMotionDeltaRotation;
+            currentTransform.rotation *= rootMotionDeltaRotation;
         }
     }
     void EnemyParTrol()

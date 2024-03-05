@@ -25,7 +25,7 @@ public class EnemyPool :PoolAbtract<UnitCtl>
 
     private void Start()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 2; i++)
         {
             Transform newStransform = spawObject.GetSpawPoint();
             SpawObject(0, newStransform.position, newStransform.rotation);
