@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ced35248977a545af3f2beca89cb3a, type: 3}
+  m_Name: Tommy_gun_mesh
+  m_EditorClassIdentifier: 
+  mag: 15
+  fireCharge: 15
+  maximumAmuation: 20
+  realoadingTime: 2
+  giveDamage: 5
+  audioClipName: {fileID: 8300000, guid: 8f04b3ff514c3254898fc3754113a032, type: 3}
