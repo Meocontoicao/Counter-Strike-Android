@@ -1,31 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchCamera : MonoBehaviour
+public class SwitchCamera : GetFullComponent
 {
-    public GameObject acCamera;
-    public GameObject acCrossHair;
-    public GameObject tpsCamera;
+
+    public GameObject aimCrossHair;
     public GameObject tpsCrossHair;
 
-    //private void Update()
-    //{
+    public GameObject aimCamera;
+    public GameObject tpsCamera;
 
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        acCamera.gameObject.SetActive(true);
-    //        acCrossHair.gameObject.SetActive(true);
-    //        tpsCamera.gameObject.SetActive(false);
-    //        tpsCrossHair.gameObject.SetActive(false);
-    //    }
-    //    else if (Input.GetMouseButtonUp(0))
-    //    {
-    //        acCamera.gameObject.SetActive(false);
-    //        acCrossHair.gameObject.SetActive(false);
-    //        tpsCamera.gameObject.SetActive(true);
-    //        tpsCrossHair.gameObject.SetActive(true);
-    //    }
-    //}
+    private void OnEnable() => AimBtn.ainBtnEven += SwithCamera;
+
+    private void SwithCamera()
+    {
+         if (!aimCamera.activeSelf)
+        {
+            aimCamera.gameObject.SetActive(true) ;
+            tpsCrossHair.gameObject.SetActive(false);
+            aimCrossHair.gameObject.SetActive(true);
+            tpsCamera.gameObject.SetActive(false);
+            return;
+        }
+        aimCamera.gameObject.SetActive(false);
+        tpsCrossHair.gameObject.SetActive(true);
+        aimCrossHair.gameObject.SetActive(false);
+        tpsCamera.gameObject.SetActive(true);
+    }
+
+    [ContextMenu("Get all")]
+    protected override void GetAllCompos()
+    {
+        base.GetAllCompos();
+   
+    }
 
 }

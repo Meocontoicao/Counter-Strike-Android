@@ -16,6 +16,7 @@ public class PlayerAttack : GetFullComponent
             return;
         isRun = true;
         StartCoroutine(VirutalUpdate());
+       
     }
     IEnumerator VirutalUpdate()
     {
@@ -29,12 +30,12 @@ public class PlayerAttack : GetFullComponent
         }
         if (gun.isRealoadding)
         {
-            playerAnim.SetBool("Reloading", true);
+            playerAnim.SetBool(CONSTANT.Reload, true);
             playerMove.isRun = false;
             WaitUntil wait_until = new WaitUntil(() => !gun.isRealoadding);
             yield return wait_until;
             playerMove.CallMethod();
-            playerAnim.SetBool("Reloading", false);
+            playerAnim.SetBool(CONSTANT.Reload, false);
             if (isRun)
             {
                 CallMethod();

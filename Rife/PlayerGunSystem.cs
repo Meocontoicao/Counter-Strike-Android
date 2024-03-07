@@ -11,6 +11,12 @@ public class PlayerGunSystem : Guns
     private void Start()
     {
         updateAmmo?.Invoke(presentAmuation);
+        AimBtn.ainBtnEven += GunAimAction;
+    }
+
+    private void GunAimAction()
+    {
+        allowAttack = !allowAttack;
     }
 
     public override void Shooting()
@@ -23,16 +29,14 @@ public class PlayerGunSystem : Guns
     public override void BeforeReload()
     {
         base.BeforeReload();
-        //playerScript.isRun = false;
-        playerAnim.SetBool("Reloading", true);
+        playerAnim.SetBool(CONSTANT.Reload, true);
     }
     public override void AffterReload()
     {
         base.AffterReload();
-        playerAnim.SetBool("Reloading", false);
+        playerAnim.SetBool(CONSTANT.Reload, false);
         playerAnim.SetBool(CONSTANT.Shoot, false);
         updateAmmo?.Invoke(presentAmuation);
-        //playerScript.CallVirtualMethod();
     }
 
     [ContextMenu("Get compos")]
@@ -40,6 +44,6 @@ public class PlayerGunSystem : Guns
     {
         base.GetAllCompos();
         playerAnim = transform.GetComponent<Animator>();
-        //playerScript = GameObject.FindObjectOfType<PlayerScript>();
+
     }
 }

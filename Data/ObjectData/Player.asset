@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 200
   amount: 10
   moveSpeed: 3
-  sprintSpeed: 2
+  sprintSpeed: 6
   visionRadious: 0
   shootingRadious: 0
   timeDestroy: 0
